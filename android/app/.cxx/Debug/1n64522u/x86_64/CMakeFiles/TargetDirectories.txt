@@ -1,0 +1,2 @@
+C:/Users/liabd/OneDrive/Desktop/SocialMedia/tok_tok/android/app/.cxx/Debug/1n64522u/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/liabd/OneDrive/Desktop/SocialMedia/tok_tok/android/app/.cxx/Debug/1n64522u/x86_64/CMakeFiles/rebuild_cache.dir
