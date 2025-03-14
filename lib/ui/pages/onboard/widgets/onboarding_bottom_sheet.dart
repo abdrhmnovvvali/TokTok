@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tok_tok/ui/widgets/custom_button.dart';
 import 'package:tok_tok/utils/constants/app_colors.dart';
 
 class OnboardingBottomSheet extends StatelessWidget {
@@ -36,10 +37,11 @@ class OnboardingBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            height: 3,
-            width: 38,
-            child:ColoredBox(color:  AppColors.windChime,)
-          ),
+              height: 3,
+              width: 38,
+              child: ColoredBox(
+                color: AppColors.windChime,
+              )),
           Text(
             title,
             textAlign: TextAlign.center,
@@ -58,45 +60,39 @@ class OnboardingBottomSheet extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
+          SizedBox(height: 40),
           SmoothPageIndicator(
             controller: controller,
             count: pageCount,
             effect: const WormEffect(
+              spacing: 12,
               dotWidth: 6,
               dotHeight: 6,
               activeDotColor: Colors.redAccent,
-              dotColor: Colors.grey,
+              dotColor: AppColors.dotColor,
             ),
           ),
-          const SizedBox(height: 20),
-          Row(
+          const SizedBox(height: 40),
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {
-                  controller.jumpToPage(pageCount - 1);
-                },
-                child: const Text(
-                  "Skip",
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+              CustomButton(
+                color: Colors.white,
+                backgroundColor: AppColors.primary,
+                text: "Next",
+                onPressed: () => controller.nextPage(
+                  duration: const Duration(milliseconds: 100),
+                  curve: Curves.easeIn,
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  controller.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                ),
-                child: const Text("Next", style: TextStyle(fontSize: 16)),
+              SizedBox(
+                height: 12,
+              ),
+              CustomButton(
+                color: AppColors.primary,
+                backgroundColor: AppColors.sugarCoated,
+                text: "Skip",
+                onPressed: () {},
               ),
             ],
           ),

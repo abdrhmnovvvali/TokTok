@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tok_tok/ui/pages/onboard/onboard_page.dart';
 import 'package:tok_tok/ui/pages/splash/splash_page.dart';
+import 'package:tok_tok/ui/pages/welcome/welcome_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home:  OnboardPage(),
+      home:  WelcomePage(),
     );
   }
 }

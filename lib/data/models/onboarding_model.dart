@@ -17,13 +17,13 @@ final List<OnboardingModel> onboardingPages = [
     image: "assets/png/onboard1.png",
   ),
   OnboardingModel(
-    title: "Stay Connected Anytime",
-    description: "Communicate and engage with people around the world.",
+    title: "Let's Connect with Everyone in the World",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "assets/png/onboard2.png",
   ),
   OnboardingModel(
-    title: "Your Privacy Matters",
-    description: "We ensure your data is secure and protected at all times.",
+    title: "Everything You Can Doin the App",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "assets/png/onboard3.png",
   ),
 ];
