@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tok_tok/ui/widgets/custom_button.dart';
-import 'package:tok_tok/utils/constants/app_colors.dart';
-import 'package:tok_tok/utils/extensions/num_extension.dart';
+
+import '../../../../utils/constants/app_colors.dart';
+import '../../../../utils/extensions/num_extension.dart';
+import '../../../widgets/custom_button.dart';
 
 class OnboardingBottomSheet extends StatelessWidget {
   final PageController controller;

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tok_tok/ui/pages/sign_up/widgets/account_text_button.dart';
-import 'package:tok_tok/ui/widgets/custom_app_bar.dart';
-import 'package:tok_tok/ui/widgets/custom_button.dart';
-import 'package:tok_tok/ui/widgets/custom_check_box.dart';
-import 'package:tok_tok/ui/widgets/custom_input.dart';
-import 'package:tok_tok/ui/widgets/custom_text_button.dart';
-import 'package:tok_tok/utils/constants/app_assets.dart';
-import 'package:tok_tok/utils/constants/app_colors.dart';
-import 'package:tok_tok/utils/extensions/num_extension.dart';
+import '../sign_up/widgets/account_text_button.dart';
+import '../../widgets/custom_app_bar.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/custom_check_box.dart';
+import '../../widgets/custom_input.dart';
+import '../../widgets/custom_text_button.dart';
+import '../../../utils/constants/app_assets.dart';
+import '../../../utils/constants/app_colors.dart';
+import '../../../utils/extensions/num_extension.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -17,14 +18,16 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(),
+      appBar:  CustomAppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              63.h,
+              55.verticalSpace,
               const Text(
                 "Login to your\nAccount",
                 style: TextStyle(
@@ -33,18 +36,18 @@ class SignInPage extends StatelessWidget {
                   color: AppColors.textColor,
                 ),
               ),
-              53.h,
+              50.verticalSpace,
               CustomInput(
                 hint: 'Email',
                 controller: TextEditingController(),
               ),
-              16.h,
+              16.verticalSpace,
               CustomInput(
                 hint: 'Password',
                 controller: TextEditingController(),
                 obscureText: true,
               ),
-              16.h,
+              20.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -55,14 +58,14 @@ class SignInPage extends StatelessWidget {
                   ),
                 ],
               ),
-              16.h,
+              20.verticalSpace,
               CustomButton(
                 backgroundColor: AppColors.buttonColorDisable,
                 text: "Sign up",
                 color: Colors.white,
                 onPressed: () {},
               ),
-              16.h,
+              20.verticalSpace,
               Center(
                 child: TextButton(
                     onPressed: () {},
@@ -74,7 +77,7 @@ class SignInPage extends StatelessWidget {
                           fontWeight: FontWeight.w600),
                     )),
               ),
-              30.h,
+              45.verticalSpace,
               Row(
                 children: [
                   const SizedBox(
@@ -84,7 +87,7 @@ class SignInPage extends StatelessWidget {
                       color: AppColors.borderColor,
                     ),
                   ),
-                  16.w,
+                  16.horizontalSpace,
                   const Text(
                     'or continue with',
                     style: TextStyle(
@@ -93,7 +96,7 @@ class SignInPage extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  16.w,
+                  16.horizontalSpace,
                   const SizedBox(
                     height: 1,
                     width: 96,
@@ -103,18 +106,18 @@ class SignInPage extends StatelessWidget {
                   ),
                 ],
               ),
-              24.h,
+              30.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AccountTextButton(icon: AppAssets.facebook),
-                  20.w,
+                  20.horizontalSpace,
                   AccountTextButton(icon: AppAssets.google),
-                  20.w,
+                  20.horizontalSpace,
                   AccountTextButton(icon: AppAssets.apple),
                 ],
               ),
-              35.h,
+              40.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -127,7 +130,7 @@ class SignInPage extends StatelessWidget {
                       fontFamily: AppAssets.fontFamily,
                     ),
                   ),
-                  8.w,
+                  8.horizontalSpace,
                   InkWell(
                     onTap: () {},
                     child: const Text(

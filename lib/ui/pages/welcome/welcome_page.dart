@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tok_tok/ui/widgets/custom_app_bar.dart';
-import 'package:tok_tok/ui/widgets/custom_button.dart';
-import 'package:tok_tok/ui/widgets/custom_text_button.dart';
-import 'package:tok_tok/utils/constants/app_assets.dart';
-import 'package:tok_tok/utils/constants/app_colors.dart';
-import 'package:tok_tok/utils/extensions/num_extension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../widgets/custom_app_bar.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/custom_text_button.dart';
+import '../../../utils/constants/app_assets.dart';
+import '../../../utils/constants/app_colors.dart';
+import '../../../utils/extensions/num_extension.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -13,16 +14,18 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: Align(
         alignment: Alignment.center,
         child: Column(
           children: [
-            35.h,
+            35.verticalSpace,
             const Image(
               image: AssetImage(AppAssets.welcome),
             ),
-            35.h,
+            35.verticalSpace,
             const Text(
               'Let’s you in',
               style: TextStyle(
@@ -32,28 +35,28 @@ class WelcomePage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            39.h,
+            39.verticalSpace,
             CustomTextButton(
               height: 60,
               width: 380,
               text: 'Continue with Facebook',
               icon: AppAssets.facebook,
             ),
-            16.h,
+            16.verticalSpace,
             CustomTextButton(
               height: 60,
               width: 380,
               text: 'Continue with Google',
               icon: AppAssets.google,
             ),
-            16.h,
+            16.verticalSpace,
             CustomTextButton(
               height: 60,
               width: 380,
               text: 'Continue with Apple',
               icon: AppAssets.apple,
             ),
-            35.h,
+            35.verticalSpace,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
@@ -65,7 +68,7 @@ class WelcomePage extends StatelessWidget {
                       color: AppColors.borderColor,
                     ),
                   ),
-                  16.w,
+                  16.verticalSpace,
                   const Text(
                     'or',
                     style: TextStyle(
@@ -74,7 +77,7 @@ class WelcomePage extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  16.w,
+                  16.verticalSpace,
                   const SizedBox(
                     height: 1,
                     width: 155,
@@ -85,14 +88,14 @@ class WelcomePage extends StatelessWidget {
                 ],
               ),
             ),
-            35.h,
+            35.verticalSpace,
             CustomButton(
               onPressed: () {},
               backgroundColor: AppColors.primary,
               text: "Sign in with password",
               color: Colors.white,
             ),
-            35.h,
+            35.verticalSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -105,7 +108,7 @@ class WelcomePage extends StatelessWidget {
                     fontFamily: AppAssets.fontFamily,
                   ),
                 ),
-                8.w,
+                8.verticalSpace,
                 GestureDetector(
                   onTap: () {},
                   child: const Text(
