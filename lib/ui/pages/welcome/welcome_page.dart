@@ -4,6 +4,7 @@ import 'package:tok_tok/ui/widgets/custom_button.dart';
 import 'package:tok_tok/ui/widgets/custom_text_button.dart';
 import 'package:tok_tok/utils/constants/app_assets.dart';
 import 'package:tok_tok/utils/constants/app_colors.dart';
+import 'package:tok_tok/utils/extensions/num_extension.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -12,21 +13,17 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
       body: Align(
         alignment: Alignment.center,
         child: Column(
           children: [
-            SizedBox(
-              height: 39.5,
-            ),
-            Image(
+            35.h,
+            const Image(
               image: AssetImage(AppAssets.welcome),
             ),
-            SizedBox(
-              height: 39.5,
-            ),
-            Text(
+            35.h,
+            const Text(
               'Let’s you in',
               style: TextStyle(
                 color: AppColors.textColor,
@@ -35,45 +32,41 @@ class WelcomePage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
-              height: 39.5,
-            ),
+            39.h,
             CustomTextButton(
+              height: 60,
+              width: 380,
               text: 'Continue with Facebook',
               icon: AppAssets.facebook,
             ),
-            SizedBox(
-              height: 16,
-            ),
+            16.h,
             CustomTextButton(
+              height: 60,
+              width: 380,
               text: 'Continue with Google',
               icon: AppAssets.google,
             ),
-            SizedBox(
-              height: 16,
-            ),
+            16.h,
             CustomTextButton(
+              height: 60,
+              width: 380,
               text: 'Continue with Apple',
               icon: AppAssets.apple,
             ),
-            SizedBox(
-              height: 34,
-            ),
+            35.h,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 1,
                     width: 155,
                     child: ColoredBox(
                       color: AppColors.borderColor,
                     ),
                   ),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  Text(
+                  16.w,
+                  const Text(
                     'or',
                     style: TextStyle(
                       color: AppColors.cloakGrey,
@@ -81,29 +74,51 @@ class WelcomePage extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  SizedBox(
+                  16.w,
+                  const SizedBox(
                     height: 1,
                     width: 155,
                     child: ColoredBox(
                       color: AppColors.borderColor,
                     ),
                   ),
-                  
                 ],
               ),
             ),
-            SizedBox(
-                    height: 34,
-                  ),
-
+            35.h,
             CustomButton(
-                onPressed: () {},
-                backgroundColor: AppColors.primary,
-                text: "Sign in with password",
-                color: Colors.white)
+              onPressed: () {},
+              backgroundColor: AppColors.primary,
+              text: "Sign in with password",
+              color: Colors.white,
+            ),
+            35.h,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Don’t have an account?',
+                  style: TextStyle(
+                    color: AppColors.textColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: AppAssets.fontFamily,
+                  ),
+                ),
+                8.w,
+                GestureDetector(
+                  onTap: () {},
+                  child: const Text(
+                    'Sign up',
+                    style: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

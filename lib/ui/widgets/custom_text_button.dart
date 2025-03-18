@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tok_tok/utils/constants/app_assets.dart';
 import 'package:tok_tok/utils/constants/app_colors.dart';
+import 'package:tok_tok/utils/extensions/num_extension.dart';
 
 class CustomTextButton extends StatelessWidget {
-   CustomTextButton({super.key, required this.text, required this.icon});
+   CustomTextButton({super.key,  required this.text, required this.icon, required this.height , required this.width });
   String text;
   String icon;
+  double height;
+  double width;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
-      width: 380,
+      height: height,
+      width: width,
       child: TextButton(
           onPressed: () {},
           style: TextButton.styleFrom(
@@ -33,7 +36,7 @@ class CustomTextButton extends StatelessWidget {
                   height: 24,
                   width: 24,
                 ),
-                const SizedBox(width: 12),
+                12.w ,
                 Text(
                   text,
                   style: TextStyle(

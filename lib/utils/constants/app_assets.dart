@@ -7,6 +7,10 @@ class AppAssets {
 
     static const welcome = 'assets/png/welcome.png';
     static const fontFamily ="Urbanist"; 
+    static const email = 'assets/svg/email.svg';
+    static const password = 'assets/svg/password.svg';
+
+
 
 
 

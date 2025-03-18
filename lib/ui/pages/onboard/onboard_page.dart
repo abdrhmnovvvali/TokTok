@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tok_tok/data/models/onboarding_model.dart';
 import 'package:tok_tok/ui/pages/onboard/widgets/onboarding_bottom_sheet.dart';
+import 'package:tok_tok/utils/extensions/num_extension.dart';
 
 class OnboardPage extends StatelessWidget {
   OnboardPage({super.key});
@@ -15,7 +16,6 @@ class OnboardPage extends StatelessWidget {
         _currentPageNotifier.value = _controller.page?.toInt() ?? 0;
       }
     });
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -35,7 +35,7 @@ class OnboardPage extends StatelessWidget {
                         height: 260,
                         width: 307,
                       ),
-                      const SizedBox(height: 20),
+                      20.h,
                     ],
                   );
                 },
