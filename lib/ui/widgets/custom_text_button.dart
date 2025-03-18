@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tok_tok/utils/constants/app_assets.dart';
-import 'package:tok_tok/utils/constants/app_colors.dart';
-import 'package:tok_tok/utils/extensions/num_extension.dart';
+import '../../utils/constants/app_assets.dart';
+import '../../utils/constants/app_colors.dart';
+import '../../utils/extensions/num_extension.dart';
 
 class CustomTextButton extends StatelessWidget {
-   CustomTextButton({super.key,  required this.text, required this.icon, required this.height , required this.width });
+  CustomTextButton({
+    super.key,
+    required this.text,
+    required this.icon,
+    required this.height,
+    required this.width,
+  });
   String text;
   String icon;
   double height;
@@ -19,7 +26,7 @@ class CustomTextButton extends StatelessWidget {
       child: TextButton(
           onPressed: () {},
           style: TextButton.styleFrom(
-            side: BorderSide(
+            side: const BorderSide(
                 color: AppColors.borderColor,
                 width: 1,
                 style: BorderStyle.solid),
@@ -36,10 +43,10 @@ class CustomTextButton extends StatelessWidget {
                   height: 24,
                   width: 24,
                 ),
-                12.w ,
+                12.horizontalSpace,
                 Text(
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.textColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w600,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tok_tok/utils/constants/app_colors.dart';
+import '../../../../utils/constants/app_colors.dart';
 
 class AccountTextButton extends StatelessWidget {
   AccountTextButton({super.key, required this.icon});

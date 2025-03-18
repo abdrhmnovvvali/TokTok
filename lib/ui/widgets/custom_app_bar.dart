@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tok_tok/utils/constants/app_assets.dart';
+import '../../utils/constants/app_assets.dart';
 
 import '../../utils/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
+   CustomAppBar({
+
     super.key,
+    this.backgroundColor,
     this.title,
     this.leadIcon = AppAssets.arrowLeft,
     this.onLeadingPressed,
@@ -15,13 +17,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final String? leadIcon;
   final VoidCallback? onLeadingPressed;
+  Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: backgroundColor,
         centerTitle: true,
         leading: leadIcon == null
             ? null
@@ -36,7 +39,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
         title: title == null ? null : Text(title!),
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           color: AppColors.textColor,
           fontWeight: FontWeight.w700,
           fontSize: 26,

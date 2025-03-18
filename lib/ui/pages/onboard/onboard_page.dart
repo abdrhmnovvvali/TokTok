@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tok_tok/data/models/onboarding_model.dart';
-import 'package:tok_tok/ui/pages/onboard/widgets/onboarding_bottom_sheet.dart';
-import 'package:tok_tok/utils/extensions/num_extension.dart';
+import '../../../data/models/onboarding_model.dart';
+import 'widgets/onboarding_bottom_sheet.dart';
+import '../../../utils/extensions/num_extension.dart';
 
 class OnboardPage extends StatelessWidget {
   OnboardPage({super.key});

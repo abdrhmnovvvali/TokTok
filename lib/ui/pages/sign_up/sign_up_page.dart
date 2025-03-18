@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tok_tok/ui/pages/sign_up/widgets/account_text_button.dart';
-import 'package:tok_tok/ui/widgets/custom_app_bar.dart';
-import 'package:tok_tok/ui/widgets/custom_button.dart';
-import 'package:tok_tok/ui/widgets/custom_check_box.dart';
-import 'package:tok_tok/ui/widgets/custom_input.dart';
-import 'package:tok_tok/ui/widgets/custom_text_button.dart';
-import 'package:tok_tok/utils/constants/app_assets.dart';
-import 'package:tok_tok/utils/constants/app_colors.dart';
-import 'package:tok_tok/utils/extensions/num_extension.dart';
+import 'widgets/account_text_button.dart';
+import '../../widgets/custom_app_bar.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/custom_check_box.dart';
+import '../../widgets/custom_input.dart';
+import '../../widgets/custom_text_button.dart';
+import '../../../utils/constants/app_assets.dart';
+import '../../../utils/constants/app_colors.dart';
+import '../../../utils/extensions/num_extension.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -17,14 +18,16 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              77.h,
+              77.verticalSpace,
               const Text(
                 "Create your\nAccount",
                 style: TextStyle(
@@ -33,18 +36,18 @@ class SignUpPage extends StatelessWidget {
                   color: AppColors.textColor,
                 ),
               ),
-              67.5.h,
+              67.5.verticalSpace,
               CustomInput(
                 hint: 'Email',
                 controller: TextEditingController(),
               ),
-              20.h,
-              CustomInput(   
+              20.verticalSpace,
+              CustomInput(
                 hint: 'Password',
                 controller: TextEditingController(),
                 obscureText: true,
               ),
-              20.h,
+              20.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -55,55 +58,54 @@ class SignUpPage extends StatelessWidget {
                   ),
                 ],
               ),
-              20.h,
+              20.verticalSpace,
               CustomButton(
                 backgroundColor: AppColors.buttonColorDisable,
                 text: "Sign up",
                 color: Colors.white,
                 onPressed: () {},
               ),
-              20.h,
+              20.verticalSpace,
               Row(
-                  children: [
-                    const SizedBox(
-                      height: 1,
-                      width: 96,
-                      child: ColoredBox(
-                        color: AppColors.borderColor,
-                      ),
+                children: [
+                  const SizedBox(
+                    height: 1,
+                    width: 96,
+                    child: ColoredBox(
+                      color: AppColors.borderColor,
                     ),
-                    16.w,
-                    const Text(
-                      'or continue with',
-                      style: TextStyle(
-                        color: AppColors.cloakGrey,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
+                  ),
+                  16.horizontalSpace,
+                  const Text(
+                    'or continue with',
+                    style: TextStyle(
+                      color: AppColors.cloakGrey,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
                     ),
-                    16.w,
-                    const SizedBox(
-                      height: 1,
-                      width: 96,
-                      child: ColoredBox(
-                        color: AppColors.borderColor,
-                      ),
+                  ),
+                  16.horizontalSpace,
+                  const SizedBox(
+                    height: 1,
+                    width: 96,
+                    child: ColoredBox(
+                      color: AppColors.borderColor,
                     ),
-                  ],
-                ),
-              30.h,
+                  ),
+                ],
+              ),
+              30.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AccountTextButton(icon: AppAssets.facebook),
-                  20.w,
+                  20.horizontalSpace,
                   AccountTextButton(icon: AppAssets.google),
-                  20.w,
+                  20.horizontalSpace,
                   AccountTextButton(icon: AppAssets.apple),
-                  
                 ],
               ),
-              55.h,
+              55.verticalSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -116,7 +118,7 @@ class SignUpPage extends StatelessWidget {
                       fontFamily: AppAssets.fontFamily,
                     ),
                   ),
-                  8.w,
+                  8.horizontalSpace,
                   GestureDetector(
                     onTap: () {},
                     child: const Text(
@@ -130,7 +132,6 @@ class SignUpPage extends StatelessWidget {
                   ),
                 ],
               ),
-        
             ],
           ),
         ),
