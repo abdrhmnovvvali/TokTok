@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tok_tok/ui/pages/onboard/onboard_page.dart';
+import 'package:tok_tok/ui/pages/sign_in/sign_in_page.dart';
+import 'package:tok_tok/ui/pages/sign_up/sign_up_page.dart';
 import 'package:tok_tok/ui/pages/splash/splash_page.dart';
 import 'package:tok_tok/ui/pages/welcome/welcome_page.dart';
+import 'package:tok_tok/utils/helpers/pager.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,13 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
-   
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home:  WelcomePage(),
+      home: Pager.signUp,
     );
   }
 }

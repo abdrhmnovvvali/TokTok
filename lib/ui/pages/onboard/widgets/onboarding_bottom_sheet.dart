@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tok_tok/ui/widgets/custom_button.dart';
 import 'package:tok_tok/utils/constants/app_colors.dart';
+import 'package:tok_tok/utils/extensions/num_extension.dart';
 
 class OnboardingBottomSheet extends StatelessWidget {
   final PageController controller;
@@ -36,7 +37,7 @@ class OnboardingBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
+          const SizedBox(
               height: 3,
               width: 38,
               child: ColoredBox(
@@ -51,7 +52,7 @@ class OnboardingBottomSheet extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 10),
+          10.h,
           Text(
             description,
             textAlign: TextAlign.center,
@@ -60,7 +61,7 @@ class OnboardingBottomSheet extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
-          SizedBox(height: 40),
+          40.h,
           SmoothPageIndicator(
             controller: controller,
             count: pageCount,
@@ -72,7 +73,7 @@ class OnboardingBottomSheet extends StatelessWidget {
               dotColor: AppColors.dotColor,
             ),
           ),
-          const SizedBox(height: 40),
+          40.h,
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -85,9 +86,7 @@ class OnboardingBottomSheet extends StatelessWidget {
                   curve: Curves.easeIn,
                 ),
               ),
-              SizedBox(
-                height: 12,
-              ),
+              12.h,
               CustomButton(
                 color: AppColors.primary,
                 backgroundColor: AppColors.sugarCoated,
