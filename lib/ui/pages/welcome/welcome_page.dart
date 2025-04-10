@@ -15,7 +15,6 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
-        backgroundColor: Colors.transparent,
       ),
       body: Align(
         alignment: Alignment.center,

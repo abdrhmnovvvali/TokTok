@@ -17,6 +17,10 @@ static  const  buttonColorDisable=Color(0xffE98090);
 static  const dotColor=Color(0xffE0E0E0);
 static  const borderColor=Color(0xffEEEEEE);
 static  const  inputColor=Color(0xffFAFAFA);
+static  const  inputTextColor=Color(0xff0F172A);
+
+
+
 
 
 

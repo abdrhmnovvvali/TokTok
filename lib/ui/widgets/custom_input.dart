@@ -21,11 +21,14 @@ class CustomInput extends StatelessWidget {
       height: 60,
       width: 380,
       child: TextFormField(
+        
+        
         onChanged:onChanged ,
         
         obscureText: obscureText,
         controller: controller,
         decoration: InputDecoration(
+          
           suffixIcon: obscureText
               ? IconButton(
                   onPressed: () {},
@@ -52,7 +55,7 @@ class CustomInput extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.w400,
               fontFamily: AppAssets.fontFamily),
-          fillColor: AppColors.inputColor,
+          fillColor: AppColors.borderColor,
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),

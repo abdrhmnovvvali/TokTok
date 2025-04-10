@@ -8,7 +8,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
    CustomAppBar({
 
     super.key,
-    this.backgroundColor,
     this.title,
     this.leadIcon = AppAssets.arrowLeft,
     this.onLeadingPressed,
@@ -17,15 +16,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final String? leadIcon;
   final VoidCallback? onLeadingPressed;
-  Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppBar(
-        backgroundColor: backgroundColor,
-        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        // centerTitle: true,
         leading: leadIcon == null
             ? null
             : GestureDetector(
@@ -40,9 +38,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
         title: title == null ? null : Text(title!),
         titleTextStyle: const TextStyle(
+          fontFamily: AppAssets.fontFamily,
           color: AppColors.textColor,
           fontWeight: FontWeight.w700,
-          fontSize: 26,
+          fontSize: 24,
           height: 35 / 26,
           letterSpacing: -0.5,
         ),

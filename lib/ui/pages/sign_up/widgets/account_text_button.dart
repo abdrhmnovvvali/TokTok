@@ -3,15 +3,16 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../utils/constants/app_colors.dart';
 
 class AccountTextButton extends StatelessWidget {
-  AccountTextButton({super.key, required this.icon});
+  AccountTextButton({super.key, required this.icon,this.onPressed});
   String icon;
+   void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 60,
       width: 88,
       child: TextButton(
-          onPressed: () {},
+          onPressed:onPressed,
           style: TextButton.styleFrom(
             side: const BorderSide(
                 color: AppColors.borderColor,

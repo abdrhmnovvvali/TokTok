@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../data/models/onboarding_model.dart';
+import '../../../data/models/local/onboarding_model.dart';
 import 'widgets/onboarding_bottom_sheet.dart';
 import '../../../utils/extensions/num_extension.dart';
 
