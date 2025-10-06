@@ -25,11 +25,11 @@ class Tokens {
 
   factory Tokens.fromJson(Map<String, dynamic> json) {
     return Tokens(
-      access: json["access"] ?? "", 
+      access: json["token"] ?? "", 
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "access": access,
+        "token": access,
       };
 }

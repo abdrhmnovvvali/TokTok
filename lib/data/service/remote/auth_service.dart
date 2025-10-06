@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -17,59 +18,43 @@ import '../../models/remote/response/login_response.dart';
 import '../../models/remote/response/user_profile.dart';
 
 class AuthService {
-  final _dio = Dio(
-    BaseOptions(
-      headers: {
-        'Accept': '*/*',
-        'Content-Type': 'application/json',
-      },
-      validateStatus: (status) {
-        return status! < 500;
-      },
-    ),
-  );
+  Future<LoginResponse> login({
+    required LoginRequest request,
+  }) async {
+    try {
+      log('🚀 GÖNDƏRİLƏN DATA: ${request.toJson()}');
+      log('🚀 API URL: ${ApiKeys.login}');
 
- Future<LoginResponse> login({
-  required LoginRequest request,
+      final response = await AuthDio.instance.dio.post(
+        ApiKeys.login,
+        data: request.toJson(),
+      );
 
-}) async {
-  try {
-    log('🚀 GÖNDƏRİLƏN DATA: ${request.toJson()}');  
-    log('🚀 API URL: ${ApiKeys.login}');
+      log('📥 RESPONSE STATUS: ${response.statusCode}');
+      log('📥 RESPONSE DATA: ${response.data}');
 
-    final response = await _dio.post(
-      ApiKeys.login,
-      data: request.toJson(),
-    );
+      if (response.statusCode!.isSuccess) {
+        final loginResponse = LoginResponse.fromJson(response.data);
 
-    log('📥 RESPONSE STATUS: ${response.statusCode}');
-    log('📥 RESPONSE DATA: ${response.data}');
+        await AuthHiveService.saveToken(loginResponse.token.access);
 
-     if (response.statusCode!.isSuccess) {
-      final loginResponse = LoginResponse.fromJson(response.data);
+        return loginResponse;
+      }
 
-      
-      await locator<AuthHiveService>().saveToken(loginResponse.token.access);
-      
+      throw DioException(
+        requestOptions: response.requestOptions,
+        response: response,
+        message: 'Login failed with status code: ${response.statusCode}',
+      );
+    } on DioException catch (e) {
+      log('❌ DioException: ${e.response?.data}');
+      rethrow;
+    } catch (e, s) {
+      log('❌ Xəta: $e');
 
-
-      return loginResponse;
+      throw Exception('Unexpected error during login: $e');
     }
-
-    throw DioException(
-      requestOptions: response.requestOptions,
-      response: response,
-      message: 'Login failed with status code: ${response.statusCode}',
-    );
-  } on DioException catch (e) {
-    log('❌ DioException: ${e.response?.data}');
-    rethrow;
-  } catch (e,s) {
-    log('❌ Xəta: $e');
-
-    throw Exception('Unexpected error during login: $e');
   }
-}
 
   Future<UserProfile> signUp(SignUpRequest request) async {
     try {
@@ -95,7 +80,8 @@ class AuthService {
       throw Exception('Unexpected error during sign-up: $e');
     }
   }
-   Future<ForgetResponse> forgetPassword(ForgetRequest request) async {
+
+  Future<ForgetResponse> forgetPassword(ForgetRequest request) async {
     try {
       final response = await AuthDio.instance.dio.post(
         ApiKeys.forget,
@@ -119,7 +105,8 @@ class AuthService {
       throw Exception('Unexpected error during sign-up: $e');
     }
   }
-     Future<VerifyResponse> verify(VerifyRequest request) async {
+
+  Future<VerifyResponse> verify(VerifyRequest request) async {
     try {
       final response = await AuthDio.instance.dio.post(
         ApiKeys.verify,
@@ -149,7 +136,7 @@ class AuthService {
   // Future<UserCredential?> signInWithGoogle() async {
   //   try {
   //     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-  //     if (googleUser == null) return null; 
+  //     if (googleUser == null) return null;
 
   //     final GoogleSignInAuthentication googleAuth =
   //         await googleUser.authentication;
@@ -174,9 +161,14 @@ class AuthService {
   //   await _googleSignIn.signOut();
   // }
 
-
-
+  Future<bool> checkAuthStatus() async {
+    final data = await AuthHiveService.getToken();
+    final response =
+        await AuthDio.instance.dio.post(ApiKeys.check, data: {'token': data});
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-
-
-

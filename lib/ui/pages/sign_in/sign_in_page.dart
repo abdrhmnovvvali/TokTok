@@ -1,9 +1,7 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:tok_tok/cubits/signin/signin_cubit.dart';
 import 'package:tok_tok/utils/constants/snackbars.dart';
 import 'package:tok_tok/utils/helpers/go.dart';
@@ -13,10 +11,8 @@ import '../../widgets/custom_app_bar.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_check_box.dart';
 import '../../widgets/custom_input.dart';
-import '../../widgets/custom_text_button.dart';
 import '../../../utils/constants/app_assets.dart';
 import '../../../utils/constants/app_colors.dart';
-import '../../../utils/extensions/num_extension.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -97,6 +93,7 @@ class SignInPage extends StatelessWidget {
                       },
                       child: const Text(
                         "Forgot the password?",
+                        
                         style: TextStyle(
                             color: AppColors.primary,
                             fontSize: 16,

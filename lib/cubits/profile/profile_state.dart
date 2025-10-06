@@ -4,14 +4,25 @@ part of 'profile_cubit.dart';
 sealed class ProfileState {}
 
 final class ProfileInitial extends ProfileState {}
-final class ProfileSuccess extends ProfileState {
-  ProfileSuccess(this.profileRepo);
-  final UserProfileResponse profileRepo;
-  
-}
+
 final class ProfileLoading extends ProfileState {}
-final class ProfileError extends ProfileState {
-  ProfileError(this.message);
-  String message;
+
+final class ProfileSuccess extends ProfileState {
+  final UserProfileResponse profile;
+  ProfileSuccess(this.profile);
 }
-final class ProfileNetworkError extends ProfileState {}
+
+final class ProfileUpdated extends ProfileState {  // ✅ Yeni state
+  final UserProfileResponse profile;
+  ProfileUpdated(this.profile);
+}
+
+final class ProfileImagePicked extends ProfileState {
+  final File image;
+  ProfileImagePicked(this.image);
+}
+
+final class ProfileError extends ProfileState {
+  final String message;
+  ProfileError(this.message);
+}

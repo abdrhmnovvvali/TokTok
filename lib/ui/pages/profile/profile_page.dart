@@ -8,33 +8,31 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<ProfileCubit>().getUser();
-    });
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: const Center(child: Text('Profile duntayaudyahdkjshkdhksfhsm.fsklfjslkk')),
       ),
-      body: BlocBuilder<ProfileCubit, ProfileState>(
-        builder: (context, state) {
-          if (state is ProfileLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          if (state is ProfileSuccess) {
-            return Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: const ProfileForm(),
-            ); 
-          }
-
-          if (state is ProfileError) {
-            return Center(child: Text(state.message));
-          }
-
-          return const Center(child: Text("Error loading profile"));
-        },
+      body: SingleChildScrollView(
+        child: BlocBuilder<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            if (state is ProfileLoading) {
+              return const Center(child: CircularProgressIndicator());
+            }
+        
+            if (state is ProfileSuccess) {
+              return const Padding(
+                padding: EdgeInsets.all(24.0),
+                child: ProfileForm(),
+              );
+            }
+        
+            if (state is ProfileError) {
+              return Center(child: Text(state.message));
+            }
+        
+            return const Center(child: Text("Error loading profile"));
+          },
+        ),
       ),
     );
   }

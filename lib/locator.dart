@@ -4,6 +4,7 @@ import 'package:tok_tok/cubits/forget/forget_cubit.dart';
 import 'package:tok_tok/cubits/profile/profile_cubit.dart';
 import 'package:tok_tok/cubits/signin/signin_cubit.dart';
 import 'package:tok_tok/cubits/signup/signup_cubit.dart';
+import 'package:tok_tok/cubits/splash/splash_cubit.dart';
 import 'package:tok_tok/cubits/verify/verify_cubit.dart';
 import 'package:tok_tok/data/i_repo/auth_repo_impl.dart';
 import 'package:tok_tok/data/i_repo/profile_repo_impl.dart';
@@ -23,6 +24,7 @@ void setupLocator() {
   // Services
   locator.registerLazySingleton(() => AuthService());
     locator.registerLazySingleton(() => AuthHiveService());
+  
 
     locator.registerLazySingleton(() => ProfileService());
 
@@ -37,6 +39,7 @@ void setupLocator() {
   // locator.registerFactory(() => NewPasswordCubit());
   locator.registerFactory(() => SignInCubit(locator()));
   locator.registerFactory(()=>ProfileCubit(locator()));
+  locator.registerFactory(()=>SplashCubit());
 
 
   locator.registerFactory(() => SignUpCubit(locator<AuthRepo>()));

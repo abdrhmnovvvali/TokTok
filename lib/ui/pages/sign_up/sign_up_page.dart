@@ -152,7 +152,9 @@ class SignUpPage extends StatelessWidget {
                       ),
                       8.horizontalSpace,
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Go.replace(context,Pager.signin);
+                        },
                         child: const Text(
                           'Sign in',
                           style: TextStyle(
