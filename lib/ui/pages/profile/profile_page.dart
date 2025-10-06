@@ -10,7 +10,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Profile duntayaudyahdkjshkdhksfhsm.fsklfjslkk')),
+        title: const Center(child: Text('Profile ')),
       ),
       body: SingleChildScrollView(
         child: BlocBuilder<ProfileCubit, ProfileState>(
